@@ -126,6 +126,7 @@
 
 - 在设备的读函数中，刚开始注册用户时，会输出一次[ch_device module]:user is not alive!日志如下：
 ![message](screenshots/dmesg1.png)
+
 **猜测原因**：第一次read时，设备注册还没完成。
 **解决思路**：在循环读消息前，先sleep(1)，用户创建完成后再读消息。但是sleep(1)后依然没有解决问题
 ![reason](screenshots/send_error.png)
